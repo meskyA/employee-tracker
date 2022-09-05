@@ -1,8 +1,9 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const inquirer = require('inquirer');
 
 
 const promptMessages = {
+    viewAllDepartments: "View All Departments",
     viewAllEmployees: "View All Employees",
     viewByDepartment: "View All Employees By Department",
     viewByManager: "View All Employees By Manager",
@@ -17,7 +18,7 @@ const promptMessages = {
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: ' ',
+    password: '',
     database: 'employees'
 });
 

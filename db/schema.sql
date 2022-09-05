@@ -37,11 +37,11 @@ INSERT INTO role
 VALUES
     ('Manager', 125000, 1),
     ('Assistant Manager', 85000, 1),
-    ('Chief Accountant', 100000, 2),
-    ('Marketing Specialist', 80000, 3),
-    ('Sales Manager', 95000, 3),
-    ('Tech Manager', 110000, 4),
-    ('Junior Developer', 93000, 4),
+    ('Chief Accountant', 100000, 4),
+    ('Marketing Specialist', 80000, 2),
+    ('Sales Manager', 95000, 2),
+    ('Tech Manager', 110000, 3),
+    ('Junior Developer', 93000, 3),
     ('Administrative Assistant', 65000, 1);
 INSERT INTO employee
     (first_name, last_name, role_id, manager_id)
