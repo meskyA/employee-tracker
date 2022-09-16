@@ -74,7 +74,7 @@ function prompt() {
                     break;
 
                 case promptMessages.exit:
-                    connection.end();
+                    exit();
                     break;
             }
         });
@@ -176,7 +176,7 @@ function addEmployee() {
     ])
     .then(function(answer) {
 
-    db.query("SELECT employee (first_name, last_name, role_id, manager_id)VALUES (?, ?, ?, ?)", [answer.employeeFirstName, answer.employeeLastName, answer.roleID, answer.managerID], function(err, res) {
+    db.query("INSERT INTO employee (first_name, last_name, role_id, manager_id)VALUES (?, ?, ?, ?)", [answer.employeeFirstName, answer.employeeLastName, answer.roleID, answer.managerID], function(err, res) {
         if (err) throw err;
         console.table(res);
         prompt();

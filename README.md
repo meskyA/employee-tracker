@@ -33,4 +33,4 @@ jQuery
 Node.js
 MySQL
 
-[Video](https://drive.google.com/file/d/1U2vbl9TE2Xn2xvbLHddxlppm2b4m9axu/view)
+[Video](https://drive.google.com/file/d/1UcOq-WsxxmTFpo7ykuN0RrDaoBHR3mZ1/view)
