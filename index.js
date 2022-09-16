@@ -143,7 +143,7 @@ function addRole() {
       .then(function(answer) {
   
   
-        db.query("INSERT INTO role (title, salary) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal], function(err, res) {
+        db.query("INSERT INTO role (title, salary) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal, answer.departmentID], function(err, res) {
           if (err) throw err;
           console.table(res);
           prompt();
