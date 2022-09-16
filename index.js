@@ -4,11 +4,11 @@ const inquirer = require('inquirer');
 
 const promptMessages = {
     viewAllDepartments: "View All Departments",
-    viewAllEmployees: "View all Roles",
-    viewByDepartment: "View All Employees",
-    viewByManager: "Add a Department",
-    addEmployee: "Add A Role",
-    removeEmployee: "Add An Employee",
+    viewAllRoles: "View all Roles",
+    viewAllEmployees: "View All Employees",
+    addDepartment: "Add a Department",
+    addRole: "Add A Role",
+    addEmployee: "Add An Employee",
     updateRole: "Update Employee Role",
     exit: "Exit"
 };
@@ -107,40 +107,6 @@ function viewAllEmployees() {
  
 }
 
-// function viewByDepartment() {
-//     const query = `SELECT department.name AS department, role.title, employee.id, employee.first_name, employee.last_name
-//     FROM employee
-//     LEFT JOIN role ON (role.id = employee.role_id)
-//     LEFT JOIN department ON (department.id = role.department_id)
-//     ORDER BY department.name;`;
-//    db.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('\n');
-//         console.log('VIEW EMPLOYEE BY DEPARTMENT');
-//         console.log('\n');
-//         console.table(res);
-//         prompt();
-//     });
-// }
-
-
-// function viewByManager() {
-//     const query = `SELECT CONCAT(manager.first_name, ' ', manager.last_name) AS manager, department.name AS department, employee.id, employee.first_name, employee.last_name, role.title
-//     FROM employee
-//     LEFT JOIN employee manager on manager.id = employee.manager_id
-//     INNER JOIN role ON (role.id = employee.role_id && employee.manager_id != 'NULL')
-//     INNER JOIN department ON (department.id = role.department_id)
-//     ORDER BY manager;`;
-//    db.query(query, (err, res) => {
-//         if (err) throw err;
-//         console.log('\n');
-//         console.log('VIEW EMPLOYEE BY MANAGER');
-//         console.log('\n');
-//         console.table(res);
-//         prompt();
-//     });
-// }
-
 function addDepartment() {
 
     inquirer.prompt({      
@@ -177,7 +143,7 @@ function addRole() {
       .then(function(answer) {
   
   
-        db.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal, answer.deptID], function(err, res) {
+        db.query("INSERT INTO role (title, salary) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal], function(err, res) {
           if (err) throw err;
           console.table(res);
           prompt();
@@ -190,12 +156,12 @@ function addEmployee() {
       {
         type: "input",
         message: "What's the first name of the employee?",
-        name: "eeFirstName"
+        name: "employeeFirstName"
       },
       {
         type: "input",
         message: "What's the last name of the employee?",
-        name: "eeLastName"
+        name: "employeeLastName"
       },
       {
         type: "input",
