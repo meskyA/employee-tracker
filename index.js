@@ -70,7 +70,7 @@ function prompt() {
                     break;
 
                 case promptMessages.updateRole:
-                    remove('role');
+                    updateRole();
                     break;
 
                 case promptMessages.exit:
@@ -143,7 +143,7 @@ function addRole() {
       .then(function(answer) {
   
   
-        db.query("INSERT INTO role (title, salary) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal, answer.departmentID], function(err, res) {
+        db.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.roleName, answer.salaryTotal, answer.deptID], function(err, res)  {
           if (err) throw err;
           console.table(res);
           prompt();
@@ -202,10 +202,10 @@ function updateRole() {
     ])
     .then(function(answer) {
    
-    db.query('UPDATE employee SET role_id=? WHERE first_name= ?',[answer.updateRole, answer.eeUpdate],function(err, res) {
+    db.query('UPDATE employee SET role_id=? WHERE first_name= ?',[answer.updateRole, answer.employeeUpdate],function(err, res) {
         if (err) throw err;
         console.table(res);
-        startScreen();
+        prompt();
       });
     });
 }
